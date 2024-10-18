@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Detail</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+      .custom-container {
+        max-width: 500px;
+        margin: auto;
+      }
+
+      .card {
+     	border-radius: 20px;
+     	overflow: hidden;
+      }
+      .icon-text {
+        display: flex;
+        align-items: center;
+      }
+
+      .icon-text i {
+        margin-right: 10px;
+        color: #007bff;
+      }
+
+      .card-header {
+        background-color: #007bff;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container custom-container">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2>Contact Detail</h2>
+        </div>
+        <br>
+        
+        <div class="card-body">
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-user"></i><strong>ID :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.id}"></span></div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-user-tag"></i><strong>Name :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.name}"></span></div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-phone-alt"></i><strong>Number :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.number}"></span></div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-envelope"></i><strong>Email :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.email}"></span></div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-map-marker-alt"></i><strong>Address :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.address}"></span></div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-sm-4 label-col icon-text">
+              <i class="fas fa-calendar-alt"></i><strong>Create Date :</strong>
+            </div>
+            <div class="col-sm-8"><span th:text="${contact.createdate}"></span></div>
+          </div>
+        </div>
+		<br>
+        <div class="card-footer text-center">
+          <a th:href="@{/edit/{no}(no=${contact.no})}" class="btn btn-primary mx-2">Edit Contact</a>
+          <a th:href="@{/delete/{no}(no=${contact.no})}" class="btn btn-danger mx-2" onclick="return confirm('정말 삭제하시겠습니까?');">Delete Contact</a>
+          <a href="/list" class="btn btn-secondary mx-2">Back to List</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

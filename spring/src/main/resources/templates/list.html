@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact List</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+      .custom-container {
+        max-width: 800px;
+        margin: auto;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container custom-container">
+      <h2 class="text-center mb-4">Contact List</h2>
+	<br>
+      <table class="table table-bordered table-striped text-center">
+          <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Number</th>
+          </tr>
+        <tbody>
+          <tr th:each="contact : ${contacts}">
+            <td><a th:href="@{/list/detail/{no}(no=${contact.no})}" th:text="${contact.no}"></a></td>
+            <td th:text="${contact.id}"></td>
+            <td th:text="${contact.name}"></td>
+            <td th:text="${contact.number}"></td>
+          </tr>
+        </tbody>
+      </table>
+		<br>
+      <div class="text-center mt-4">
+        <a href="/enrollment" class="btn btn-primary mx-2">Register New Contact</a>
+        <a href="/" class="btn btn-secondary mx-2">Back to Home</a>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
